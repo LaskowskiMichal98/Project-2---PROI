@@ -6,15 +6,13 @@ using namespace std;
 
 int main() {
 
-    cout << "Hello, World!" << endl;
 
     vector<rownanie>* lista = new vector<rownanie>;
     *lista=getData();
 
     for (int i = 0; i < 3; ++i) {
-        cout << (*lista)[i].getZawartosc() << endl;
+        (*lista)[i].printClass();
+        cout << endl << endl;
     }
-    getRidOfSpaces((*lista)[0].getZawartosc());
-
     return 0;
 }

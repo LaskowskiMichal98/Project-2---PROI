@@ -26,12 +26,23 @@ public:
     string getZawartosc() const{
         return this->zawartosc;
     }
+    void setZawartosc(string temp){
+        this->zawartosc=temp;
+    }
+    void setRozwiazane(bool temp){
+        this->rozwiazane=temp;
+    }
+    void setLitera(char temp){
+        this->litera=temp;
+    }
+    void setWartosc(double temp){
+        this->wartosc=temp;
+    }
 
-    friend vector<rownanie> getData();
-    friend void getRidOfSpaces(string);
+    void printClass();
 };
 
 vector<rownanie> getData();
-void getRidOfSpaces(string);
+string getRidOfSpaces(string);
 
 #endif //ZADANIE_2_7_KLASY_H

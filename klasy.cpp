@@ -13,6 +13,13 @@
 
 using namespace std;
 
+void rownanie:: printClass(){
+    cout << "Rownanie:" << this->zawartosc << endl;
+    cout << "Litera: " << this->litera << endl;
+    cout << "Rowiazane?" << this->rozwiazane << endl;
+    cout << "Wartosc: " << this->wartosc << endl;
+}
+
 vector<rownanie> getData(){
 
     vector<rownanie> rownania(10);
@@ -50,7 +57,12 @@ vector<rownanie> getData(){
         }
     }
 
-        for (int j = 0; j < strlen(&temp[0])-1; ++j) {
+        for (int j = 0; j < temp.size()-1; ++j) {
+
+            if(temp[j]=='/' && temp[j+1]=='0'){
+                cout << "W danych wejsciowych wystepuje dzielenie przez 0" << endl;
+                exit(1);
+            }
             if (((int)temp[j] > 96 && (int)temp[j] < 123 && (int)temp[j+1] > 96 && (int)temp[j+1] < 123) ||
                     ((int)temp[j] > 96 && (int)temp[j] < 123 && (int)temp[j+1] > 47 && (int)temp[j+1] < 58) ||
                     ((int)temp[j] > 47 && (int)temp[j] < 58 && (int)temp[j+1] > 96 && (int)temp[j+1] < 123) ||
@@ -62,7 +74,11 @@ vector<rownanie> getData(){
                 exit (-1);
             }
         }
-        rownania[count].zawartosc=temp;
+        temp=getRidOfSpaces(temp);
+        rownania[count].setZawartosc(temp);
+        rownania[count].setRozwiazane(false);
+        rownania[count].setLitera(temp[0]);
+
         count++;
 
     }
@@ -70,21 +86,17 @@ vector<rownanie> getData(){
     return rownania;
 }
 
-void getRidOfSpaces(string object){
+string getRidOfSpaces(string object){
 
-    char temp1[100];
-    strcpy(temp1,(&object[0]));
-    cout << temp1 << endl;
-    cout << strlen(temp1) << endl;
-    for (int i = 0; i < strlen(temp1); ++i) {
-        if((temp1)[i]==' '){
-            for (int j = i; j < strlen(temp1)-1; ++j) {
-                temp1[j]=temp1[j+1];
+    for (int i = 0; i < object.size(); ++i) {
+        if((object)[i]==' '){
+            for (int j = i; j < object.size()-1; ++j) {
+                object[j]=object[j+1];
             }
-            object[strlen(temp1)]='X';
+            object.erase(object.size()-1);
         }
     }
 
-    cout << temp1 << endl;
-    cout << strlen(temp1) << endl;
+    return object;
 };
+
