@@ -14,7 +14,7 @@ using namespace std;
 
 
 void equation:: printClass(){
-    cout << "Rownanie:" << this->calculate << endl;
+    cout << "Rownanie:" << this->forCalculation << endl;
     cout << "Litera: " << this->letter << endl;
     cout << "Rowiazane?" << this->completed << endl;
     cout << "Wartosc: " << this->value << endl;

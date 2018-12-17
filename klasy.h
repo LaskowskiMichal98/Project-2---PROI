@@ -1,6 +1,3 @@
-//
-// Created by Michał Laskowski on 09/12/2018.
-//
 
 #ifndef ZADANIE_2_7_KLASY_H
 #define ZADANIE_2_7_KLASY_H
@@ -9,21 +6,21 @@
 using namespace std;
 class equation {
 
-    string calculate;
+    string forCalculation;
     bool completed;
     char letter;
     double value;
 
 public:
     equation(string cal = "1", bool com = true, char let = 'a', int val = 1){
-        calculate=cal;
+        forCalculation=cal;
         completed=com;
         letter = let;
         value = val;
     }
 
     string getCalculate() const{
-        return this->calculate;
+        return this->forCalculation;
     }
     char getLetter() const{
         return this->letter;
@@ -35,7 +32,7 @@ public:
         return this ->completed;
     }
     void setCalculate(string temp){
-        this->calculate=temp;
+        this->forCalculation=temp;
     }
     void setCompleted(bool temp){
         this->completed=temp;
@@ -51,14 +48,9 @@ public:
 };
 
 
-class HandleCalc{
-public:
-    HandleCalc* next;
-    
-};
 vector<equation> getData();
 string getRidOfSpaces(string);
 double findValue(char,vector<equation>);
 bool checkData(string);
 
-#endif //ZADANIE_2_7_KLASY_H
+#endif
