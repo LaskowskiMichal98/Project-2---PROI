@@ -5,44 +5,60 @@
 #ifndef ZADANIE_2_7_KLASY_H
 #define ZADANIE_2_7_KLASY_H
 #include<iostream>
-#include <string.h>
 
 using namespace std;
-class rownanie {
+class equation {
 
-    string zawartosc;
-    bool rozwiazane;
-    char litera;
-    double wartosc;
+    string calculate;
+    bool completed;
+    char letter;
+    double value;
 
 public:
-    rownanie(string sciezka = "a=1", bool czy = true, char lit = 'a', int war = 1){
-        zawartosc=sciezka;
-        rozwiazane=czy;
-        litera = lit;
-        wartosc = war;
+    equation(string cal = "1", bool com = true, char let = 'a', int val = 1){
+        calculate=cal;
+        completed=com;
+        letter = let;
+        value = val;
     }
 
-    string getZawartosc() const{
-        return this->zawartosc;
+    string getCalculate() const{
+        return this->calculate;
     }
-    void setZawartosc(string temp){
-        this->zawartosc=temp;
+    char getLetter() const{
+        return this->letter;
     }
-    void setRozwiazane(bool temp){
-        this->rozwiazane=temp;
+    double getValue() const{
+        return this->value;
     }
-    void setLitera(char temp){
-        this->litera=temp;
+    bool getComplete() const{
+        return this ->completed;
     }
-    void setWartosc(double temp){
-        this->wartosc=temp;
+    void setCalculate(string temp){
+        this->calculate=temp;
+    }
+    void setCompleted(bool temp){
+        this->completed=temp;
+    }
+    void setLetter(char temp){
+        this->letter=temp;
+    }
+    void setValue(double temp){
+        this->value=temp;
     }
 
     void printClass();
 };
 
-vector<rownanie> getData();
+
+class HandleCalc{
+public:
+    HandleCalc* next;
+    
+};
+vector<equation> getData();
 string getRidOfSpaces(string);
+double findValue(char,vector<equation>);
+bool checkData(string);
 
 #endif //ZADANIE_2_7_KLASY_H

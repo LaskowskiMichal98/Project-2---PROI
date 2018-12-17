@@ -6,13 +6,11 @@ using namespace std;
 
 int main() {
 
+    vector<equation> list;
+    list=getData();
 
-    vector<rownanie>* lista = new vector<rownanie>;
-    *lista=getData();
-
-    for (int i = 0; i < 3; ++i) {
-        (*lista)[i].printClass();
-        cout << endl << endl;
+    for (int i = 0; i < list.size(); ++i) {
+        list[i].printClass();
     }
     return 0;
 }
