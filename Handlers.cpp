@@ -186,7 +186,7 @@ double HandleNumber::calculation(string calculate, HandleCalculations * beg, vec
             }
         }
         if(found==0){
-            cout << "Nie znaleziono rownania dla litery: " << "->" << calculate << "<-" << endl;
+            cout << "Nie znaleziono rownania dla litery: " << calculate << endl;
             exit (4);
         }
     }

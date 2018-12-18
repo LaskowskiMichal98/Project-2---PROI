@@ -1,6 +1,7 @@
 
 #ifndef ZADANIE_2_7_KLASY_H
 #define ZADANIE_2_7_KLASY_H
+
 #include<iostream>
 
 using namespace std;
@@ -12,7 +13,7 @@ class equation {
     double value;
 
 public:
-    equation(string cal = "1", bool com = true, char let = 'a', double val = 3.14159265){
+    equation(string cal = "1", bool com = true, char let = 'a', double val = 1){
         forCalculation=cal;
         completed=com;
         letter = let;
@@ -53,4 +54,5 @@ string getRidOfSpaces(string);
 double findValue(char,vector<equation>);
 bool checkData(string);
 void printResult(equation);
+
 #endif
