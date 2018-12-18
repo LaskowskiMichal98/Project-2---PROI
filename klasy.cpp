@@ -13,11 +13,8 @@
 using namespace std;
 
 
-void equation:: printClass(){
-    cout << "Rownanie:" << this->forCalculation << endl;
-    cout << "Litera: " << this->letter << endl;
-    cout << "Rowiazane?" << this->completed << endl;
-    cout << "Wartosc: " << this->value << endl;
+void printResult(equation print){
+    cout << print.getLetter() << " = " << print.getValue() << endl;
 }
 
 
@@ -91,7 +88,7 @@ double findValue(char X, vector<equation> equations){
 
 bool checkData(string check){
 
-    const string wrong[26] = {",.<>?`~!@#$%&_[]{}|§£","++","--","**","//","^^","+-","-+","+*","*+","+/","/+","+^","^+","-*","*-","-/","/-","-^","^-",
+    const string wrong[26] = {",<>?`~!@#$%&_[]{}|§£","++","--","**","//","^^","+-","-+","+*","*+","+/","/+","+^","^+","-*","*-","-/","/-","-^","^-",
                              "*/","/*","*^","^*","/^","^/"};
 
     if((check)[1]!='='){

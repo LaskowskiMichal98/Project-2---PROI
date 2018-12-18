@@ -16,17 +16,22 @@ int main() {
     HandleCalculations* Slash = new HandleSlash;
     HandleCalculations* Exp = new HandleExp;
     HandleCalculations* Brackets = new HandleBrackets;
-    HandleCalculations* FoundError = new Error;
+    HandleCalculations* Number = new HandleNumber;
 
     Plus->setNextHandler(Minus);
     Minus->setNextHandler(Star);
     Star->setNextHandler(Slash);
     Slash->setNextHandler(Exp);
     Exp->setNextHandler(Brackets);
-    Brackets->setNextHandler(FoundError);
+    Brackets->setNextHandler(Number);
 
     for (int i = 0; i < list.size(); ++i) {
-        list[i].printClass();
+        if(!list[i].getComplete()) {
+            list[i].setValue(Plus->calculation(list[i].getCalculate(), Plus,list));
+                list[i].setCompleted(true);
+            }
+
+        printResult(list[i]);
     }
 
     return 0;

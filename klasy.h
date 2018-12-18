@@ -12,7 +12,7 @@ class equation {
     double value;
 
 public:
-    equation(string cal = "1", bool com = true, char let = 'a', int val = 1){
+    equation(string cal = "1", bool com = true, char let = 'a', double val = 3.14159265){
         forCalculation=cal;
         completed=com;
         letter = let;
@@ -44,7 +44,7 @@ public:
         this->value=temp;
     }
 
-    void printClass();
+
 };
 
 
@@ -52,5 +52,5 @@ vector<equation> getData();
 string getRidOfSpaces(string);
 double findValue(char,vector<equation>);
 bool checkData(string);
-
+void printResult(equation);
 #endif
