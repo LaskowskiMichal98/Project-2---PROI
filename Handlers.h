@@ -1,16 +1,13 @@
-//
-// Created by Michał Laskowski on 17/12/2018.
-//
 
 #ifndef ZADANIE_2_7_HANDLERS_H
 #define ZADANIE_2_7_HANDLERS_H
 
 #include <iostream>
-#include "klasy.h"
+#include "equation.h"
 using namespace std;
 
 
-class HandleCalculations {
+class HandleCalculations {                      // Klasy składowe algorytmu do obliczeń, korzystając z wzorca projektowego "Chain of Responsibility"
 public:
     HandleCalculations* next;
 

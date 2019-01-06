@@ -2,20 +2,24 @@
 #include <string.h>
 #include <vector>
 #include <math.h>
-#include "klasy.h"
+#include "equation.h"
 #include "Handlers.h"
 using namespace std;
 
-void Calculations(vector<equation>, HandleCalculations*);
+void StartCalculations(vector<equation>, HandleCalculations*);
 
 int main() {
 
+    string path;
+    cout << "Podaj sciezke do pliku / nazwe pliku, z ktorego wczytane zostana dane" << endl;
+    getline(cin,path);
+
     vector<equation> list;
-    list=getData();
+    list=getData(path);
     string change;
     int found = 0;
 
-    HandleCalculations* Plus = new HandlePlus;
+    HandleCalculations* Plus = new HandlePlus;                  // Tworzę elementy łańcucha zobowiązań i łączę je ze sobą
     HandleCalculations* Minus = new HandleMinus;
     HandleCalculations* Star = new HandleStar;
     HandleCalculations* Slash = new HandleSlash;
@@ -30,12 +34,13 @@ int main() {
     Exp->setNextHandler(Brackets);
     Brackets->setNextHandler(Number);
 
-    Calculations(list,Plus);
+    StartCalculations(list,Plus);
 
     cout << endl << endl;
 
     cout << "Podaj wartosc od ktorej uzaleznic dalsze obliczenia np. a=15" << endl;
-    cin >> change;
+    getline(cin,change);
+    change=getRidOfSpaces(change);
 
     for (int i = 0; i < list.size(); ++i) {
         list[i].setCompleted(false);
@@ -50,13 +55,13 @@ int main() {
         exit(6);
     }
 
-    Calculations(list,Plus);
+    StartCalculations(list,Plus);
 
     return 0;
 }
 
 
-void Calculations(vector<equation> list, HandleCalculations* Plus){
+void StartCalculations(vector<equation> list, HandleCalculations* Plus){
     for (int i = 0; i < list.size(); ++i) {
         if(!list[i].getComplete()) {
             list[i].setValue(Plus->calculation(list[i].getCalculate(), Plus,list));
